@@ -50,44 +50,46 @@ section {
 }
 
 // ////////////////////////////////////////////////
-article {
-    position     : relative;
-    background   : @article_bg_color;
-    min-width    : 200px;
-    max-width    : 100%;
-    min-height   : 200px;
-    max-height   : 100%;
-    margin-bottom: 3rem;
+.row:last-child {
+    article {
+        position     : relative;
+        background   : @article_bg_color;
+        min-width    : 200px;
+        max-width    : 100%;
+        min-height   : 200px;
+        max-height   : 100%;
+        margin-bottom: 3rem;
 
-    div {
-        position  : absolute;
-        background: @bg_color;
-        top       : auto;
-        bottom    : 0;
-        opacity   : .75;
-        width     : 100%;
+        div {
+            position  : absolute;
+            background: @bg_color;
+            top       : auto;
+            bottom    : 0;
+            opacity   : .75;
+            width     : 100%;
+        }
+
+        p {
+            margin: 1rem
+        }
     }
 
-    p {
-        margin: 1rem
-    }
-}
+    article {
+        &:nth-of-type(1) {
+            background: lighten(@article_bg_color, 50%)
+        }
 
-article {
-    &:nth-of-type(1) {
-        background: lighten(@article_bg_color, 50%)
-    }
+        &:nth-of-type(3) {
+            background: darken(@article_bg_color, 50%);
+        }
 
-    &:nth-of-type(3) {
-        background: darken(@article_bg_color, 50%);
-    }
+        &:nth-of-type(4) {
+            background: saturate(@article_bg_color, 50%);
+        }
 
-    &:nth-of-type(4) {
-        background: saturate(@article_bg_color, 50%);
-    }
-
-    &:nth-of-type(5) {
-        background: desaturate(@article_bg_color, 50%);
+        &:nth-of-type(5) {
+            background: desaturate(@article_bg_color, 50%);
+        }
     }
 }
 

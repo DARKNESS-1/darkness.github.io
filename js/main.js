@@ -1,3 +1,16 @@
+var requestURL = 'https://raw.githubusercontent.com/DARKNESS-1/darkness.github.io/main/json.json';
+var request = new XMLHttpRequest();
+request.open('GET', requestURL);
+request.responseType = 'json';
+request.send();
+request.onload = function () {
+    var products = request.response;
+    // populateHeader(superHeroes);
+    // showHeroes(superHeroes);
+    console.log(products);
+
+}
+
 function createProduct(name, price) {
     return {
         name,
@@ -18,12 +31,12 @@ function createProduct(name, price) {
     };
 };
 
-let products = [
-    createProduct("Бумага офисная А4, 80 г/м2, 500 л", 280.25),
-    createProduct("Биндеры для бумаги 51 мм", 56),
-    createProduct("Ручка шариковая синяя", 12.5)
-];
-
+    // products = [
+    //     createProduct("Бумага офисная А4, 80 г/м2, 500 л", 280.25),
+    //     createProduct("Биндеры для бумаги 51 мм", 56),
+    //     createProduct("Ручка шариковая синяя", 12.5)
+    // ];
+console.log(products);
 products.forEach((product, index, products) => {
     let name = product.name;
     let price = product.price;
@@ -83,3 +96,60 @@ document.addEventListener("drop", (event) => {
         totalSum(-1);
     }
 }, false);
+
+var header = document.querySelector('header');
+var section = document.querySelector('section');
+
+var requestURL = 'https://raw.githubusercontent.com/DARKNESS-1/darkness.github.io/main/json.json';
+var request = new XMLHttpRequest();
+request.open('GET', requestURL);
+request.responseType = 'json';
+request.send();
+request.onload = function () {
+    var superHeroes = request.response;
+    populateHeader(superHeroes);
+    showHeroes(superHeroes);
+}
+
+function populateHeader(jsonObj) {
+    var myH1 = document.createElement('h1');
+    myH1.textContent = jsonObj['squadName'];
+    header.appendChild(myH1);
+
+    var myPara = document.createElement('p');
+    myPara.textContent = 'Hometown: ' + jsonObj['homeTown'] + ' // Formed: ' + jsonObj['formed'];
+    header.appendChild(myPara);
+}
+
+function showHeroes(jsonObj) {
+    var heroes = jsonObj['members'];
+
+    for (var i = 0; i < heroes.length; i++) {
+        var myArticle = document.createElement('article');
+        var myH2 = document.createElement('h2');
+        var myPara1 = document.createElement('p');
+        var myPara2 = document.createElement('p');
+        var myPara3 = document.createElement('p');
+        var myList = document.createElement('ul');
+
+        myH2.textContent = heroes[i].name;
+        myPara1.textContent = 'Secret identity: ' + heroes[i].secretIdentity;
+        myPara2.textContent = 'Age: ' + heroes[i].age;
+        myPara3.textContent = 'Superpowers:';
+
+        var superPowers = heroes[i].powers;
+        for (var j = 0; j < superPowers.length; j++) {
+            var listItem = document.createElement('li');
+            listItem.textContent = superPowers[j];
+            myList.appendChild(listItem);
+        }
+
+        myArticle.appendChild(myH2);
+        myArticle.appendChild(myPara1);
+        myArticle.appendChild(myPara2);
+        myArticle.appendChild(myPara3);
+        myArticle.appendChild(myList);
+
+        section.appendChild(myArticle);
+    }
+}
