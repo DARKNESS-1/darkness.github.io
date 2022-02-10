@@ -1,0 +1,166 @@
+﻿@bg_color        : black;
+@card_color      : rgb(99, 99, 99);
+@article_bg_color: lightgray;
+@font_color      : white;
+@font_size       : 12px;
+
+body {
+    background: @bg_color;
+    color     : @font_color;
+    font-size : @font_size;
+}
+
+section {
+    padding: .5rem;
+}
+
+.card {
+    background   : @card_color;
+    margin-bottom: .25rem;
+
+    .card-footer {
+        >div {
+            display: flex;
+        }
+
+        >div * {
+            flex: 1;
+        }
+
+        >div>div {
+            text-align: center;
+            align-self: center;
+        }
+    }
+
+}
+
+#draggable {
+    width     : 200px;
+    height    : 50px;
+    text-align: center;
+}
+
+#dropzone {
+    width        : 100%;
+    height       : 500px;
+    border       : 1px solid darkgray;
+    border-radius: 5px;
+    padding      : .5rem;
+}
+
+// ////////////////////////////////////////////////
+article {
+    position     : relative;
+    background   : @article_bg_color;
+    min-width    : 200px;
+    max-width    : 100%;
+    min-height   : 200px;
+    max-height   : 100%;
+    margin-bottom: 3rem;
+
+    div {
+        position  : absolute;
+        background: @bg_color;
+        top       : auto;
+        bottom    : 0;
+        opacity   : .75;
+        width     : 100%;
+    }
+
+    p {
+        margin: 1rem
+    }
+}
+
+article {
+    &:nth-of-type(1) {
+        background: lighten(@article_bg_color, 50%)
+    }
+
+    &:nth-of-type(3) {
+        background: darken(@article_bg_color, 50%);
+    }
+
+    &:nth-of-type(4) {
+        background: saturate(@article_bg_color, 50%);
+    }
+
+    &:nth-of-type(5) {
+        background: desaturate(@article_bg_color, 50%);
+    }
+}
+
+// article:nth-child(3) {
+//     background-color: darken(@article-color, 50%);
+// }
+
+// article:nth-child(4) {
+//     background-color: saturate(@article-color, 50%);
+// }
+
+// article:nth-child(5) {
+//     background-color: desaturate(@article-color, 50%);
+// }
+
+// @general-font: 13px;
+// @bg-color    : darkgray;
+
+// .my-first-mix {
+//     box-sizing        : border-box;
+// }
+
+// body {
+//     font-family     : 'Segoe UI'Tahoma;
+//     font-size       : @general-font;
+//     background-color: @bg-color;
+// }
+
+// #main {
+//     margin          : 20px auto;
+//     width           : 600px;
+//     border-radius   : 4px;
+//     background-color: white;
+//     padding         : 10px;
+//     .my-first-mix();
+// }
+
+// header {
+//     color      : @bg-color;
+//     font-size  : @general-font + 12px;
+//     font-weight: bold;
+// }
+
+// nav {
+//     text-align: center;
+//     margin    : 40px 0px 0px 0px;
+
+//     a {
+//         text-decoration: none;
+
+//         &:hover {
+//             text-decoration: underline;
+//         }
+//     }
+// }
+
+// #login-form {
+//     width : 300px;
+//     margin: 20px auto;
+
+//     p {
+//         margin: 10px 0px;
+
+//         >label {
+//             width : 100px;
+//             float : left;
+//             margin: 3px 0px;
+//         }
+//     }
+
+//     input[type=text],
+//     input[type=password] {
+//         border-radius: 4px;
+//         outline      : none;
+//     }
+// }
