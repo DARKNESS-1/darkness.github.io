@@ -15,8 +15,7 @@ section {
 }
 
 .card {
-    background   : @card_color;
-    margin-bottom: .25rem;
+    background: @card_color;
 
     p {
         margin-bottom: 0;
@@ -48,21 +47,23 @@ section {
     padding      : .5rem;
 }
 
-// ////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
 .row:last-child {
+    grid-gap: 1rem;
+
     article {
-        position     : relative;
-        background   : @article_bg_color;
-        min-width    : 200px;
-        max-width    : 100%;
-        min-height   : 200px;
-        max-height   : 100%;
-        margin-bottom: 3rem;
+        position  : relative;
+        background: @article_bg_color;
+        min-width : 200px;
+        max-width : 100%;
+        min-height: 200px;
+        max-height: 100%;
 
         div {
             position  : absolute;
             background: @bg_color;
             top       : auto;
+            left      : 0;
             bottom    : 0;
             opacity   : .75;
             width     : 100%;
@@ -91,77 +92,3 @@ section {
         }
     }
 }
-
-// article:nth-child(3) {
-//     background-color: darken(@article-color, 50%);
-// }
-
-// article:nth-child(4) {
-//     background-color: saturate(@article-color, 50%);
-// }
-
-// article:nth-child(5) {
-//     background-color: desaturate(@article-color, 50%);
-// }
-
-// @general-font: 13px;
-// @bg-color    : darkgray;
-
-// .my-first-mix {
-//     box-sizing        : border-box;
-// }
-
-// body {
-//     font-family     : 'Segoe UI'Tahoma;
-//     font-size       : @general-font;
-//     background-color: @bg-color;
-// }
-
-// #main {
-//     margin          : 20px auto;
-//     width           : 600px;
-//     border-radius   : 4px;
-//     background-color: white;
-//     padding         : 10px;
-//     .my-first-mix();
-// }
-
-// header {
-//     color      : @bg-color;
-//     font-size  : @general-font + 12px;
-//     font-weight: bold;
-// }
-
-// nav {
-//     text-align: center;
-//     margin    : 40px 0px 0px 0px;
-
-//     a {
-//         text-decoration: none;
-
-//         &:hover {
-//             text-decoration: underline;
-//         }
-//     }
-// }
-
-// #login-form {
-//     width : 300px;
-//     margin: 20px auto;
-
-//     p {
-//         margin: 10px 0px;
-
-//         >label {
-//             width : 100px;
-//             float : left;
-//             margin: 3px 0px;
-//         }
-//     }
-
-//     input[type=text],
-//     input[type=password] {
-//         border-radius: 4px;
-//         outline      : none;
-//     }
-// }

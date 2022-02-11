@@ -33,12 +33,11 @@
 </head>
 
 <body>
-
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <div class="container">
     <div class="row">
-      <h1>Drag&Drop magazine</h1>
+      <h1>Drag&Drop magazine + JSON</h1>
       <h4>Group Title: 1</h4>
       <section class="col-6 card-group-column"></section>
       <section class="col-6">
@@ -48,39 +47,33 @@
       </section>
     </div>
     <div class="row">
-      <h1>Drag&Drop magazine JSON</h1>
-      <h4>Group Title: 2</h4>
-      <header></header>
-      <section></section>
-    </div>
-    <div class="row">
       <h1>Tutorial Sample App</h1>
       <h4>Group Title: 2</h4>
-      <article class="three columns">
+      <article class="col-3">
         <div>
           <p>Item Title 1</p>
           <p>Item Subitle 1</p>
         </div>
       </article>
-      <article class="three columns">
+      <article class="col-3">
         <div>
           <p>Item Title 2</p>
           <p>Item Subitle 2</p>
         </div>
       </article>
-      <article class="three columns">
+      <article class="col-3">
         <div>
           <p>Item Title 3</p>
           <p>Item Subitle 3</p>
         </div>
       </article>
-      <article class="three columns">
+      <article class="col-3">
         <div>
           <p>Item Title 4</p>
           <p>Item Subitle 4</p>
         </div>
       </article>
-      <article class="three columns">
+      <article class="col-3">
         <div>
           <p>Item Title 5</p>
           <p>Item Subitle 5</p>
@@ -92,122 +85,11 @@
 
   <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
   <script src="js/main.js"></script>
-  <!-- <script type="text/javascript">
-    var requestURL = 'https://raw.githubusercontent.com/DARKNESS-1/darkness.github.io/main/json.json';
-    var request = new XMLHttpRequest();
-    request.open('GET', requestURL);
-    request.responseType = 'json';
-    request.send();
-   // request.onload = function () {
-      var keyObj = request.response;
-      createArray(keyObj);
+  <script type="text/javascript">
 
-    };
-    var products = [];
-
-    let createArray = (jsonObj) => {
-      jsonObj.forEach((product) => {
-        products.push(product);
-      });
-    }
-    console.log(products);
-
-    function createProduct(name, price) {
-      return {
-        name,
-        price,
-        ordered: 0,
-        calculateOrder(e) {
-          return this.ordered += e;
-        },
-        calculateTotal(e) {
-          return (this.ordered * this.price) * e;
-        },
-        outTotal() {
-          document.querySelector("#totalPrice").innerHTML = `Total Price: ${totalPrice}₴`;
-        },
-        isFreeShipping() {
-          (totalPrice >= 1000) ? document.querySelector("#isFreeShipping").innerHTML = `Free Shipping` : document.querySelector("#isFreeShipping").innerHTML = `Shipping`;
-        }
-      };
-    };
-
-    let section = document.querySelector('.card-group-column');
-    products.forEach((product, index) => {
-      let name = product.name;
-      let price = product.price;
-      let card = document.createElement("div");
-      let cardBody = document.createElement("div");
-      let cardPrice = document.createElement("p");
-      let cardSumPrice = document.createElement("p");
-      let cardFooter = document.createElement("div");
-      let cardButtonMin = document.createElement("button");
-      let cardOrder = document.createElement("div");
-      let cardButtonMax = document.createElement("button");
-
-      card.classList.add("card", "card_" + index);
-      card.id = index;
-      card.setAttribute("draggable", "true");
-      card.setAttribute("ondragstart", "event.dataTransfer.setData(\'text/plain\',event.target.id");
-      cardBody.classList.add("card_body");
-      cardBody.textContent = name;
-      cardPrice.textContent = "Price: " + price + "₴"
-      cardSumPrice.id = "price_" + index;
-      cardSumPrice.textContent = "Sum: - ";
-      cardFooter.classList.add("card-footer");
-      cardButtonMin.classList.add("btn", "btn-sm", "btn-success");
-      cardButtonMin.id = "btn_min_" + index;
-      cardButtonMin.setAttribute("type", "button");
-      cardButtonMin.setAttribute("disabled", "disabled");
-      cardButtonMin.textContent = "-";
-      cardOrder.id = "order_" + index;
-      cardOrder.textContent = "0";
-      cardButtonMax.classList.add("btn", "btn-sm", "btn-success");
-      cardButtonMax.id = "btn_max_" + index;
-      cardButtonMax.textContent = "+";
-
-      section.appendChild(card);
-      card.appendChild(cardBody);
-      cardBody.appendChild(cardPrice);
-      cardBody.appendChild(cardSumPrice);
-      card.appendChild(cardFooter);
-      cardFooter.appendChild(cardButtonMin);
-      cardFooter.appendChild(cardOrder);
-      cardFooter.appendChild(cardButtonMax);
-
-      document.getElementById("btn_min_" + index).addEventListener("click", () => {
-        totalOrders(-1, index);
-      });
-      document.getElementById("btn_max_" + index).addEventListener("click", () => {
-        totalOrders(1, index, product);
-      });
-    });
-
-
-
-
-    let totalPrice = 0;
-    let totalOrders = (e, id, product) => {
-      console.log(product);
-
-      product.calculateOrder(e);
-      document.querySelector("#order_" + id).innerHTML = `${product.ordered}`;
-
-      let order = 0;
-      order += (product.calculateTotal(e) * e);
-      document.querySelector("#price_" + id).innerHTML = `Sum: ${order}₴`;
-
-      let elem = document.querySelector(".card_" + id);
-      (elem.parentNode.id == "dropzone") ? totalPrice += product.price * e : false;
-
-      (product.ordered > 0) ? document.querySelector("#btn_min_" + id).removeAttribute("disabled") : document.querySelector("#btn_min_" + id).setAttribute("disabled", "disabled");
-
-      product.outTotal();
-      product.isFreeShipping();
-
-    }
-  </script> -->
+  </script>
 </body>
 
 </html>
