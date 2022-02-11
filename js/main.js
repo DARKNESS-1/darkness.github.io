@@ -9,39 +9,25 @@ request.onload = function () {
     let jsonObj = request.response;
     let totalPrice = 0;
     let section = document.querySelector('.card-group-column');
-    console.log(jsonObj);
 
     for (let product of jsonObj) {
-        console.log(product);
         products.push(product);
     }
-   // console.log(products);
-
-    
 
     function createProduct(name, price) {
         return {
-            name,
-            price,
-            ordered: 0,
-            calculateOrder(e) {
-                return this.ordered += e;
-            },
-            calculateTotal(e) {
-                return (this.ordered * this.price) * e;
-            },
-            outTotal() {
-                document.querySelector("#totalPrice").innerHTML = `Total Price: ${totalPrice}₴`;
-            },
-            isFreeShipping() {
-                (totalPrice >= 1000) ? document.querySelector("#isFreeShipping").innerHTML = `Free Shipping` : document.querySelector("#isFreeShipping").innerHTML = `Shipping`;
-            }
-        };
+            name : name,
+            price : price,
+            ordered : 0
+        }
     };
     for (let i = 0; i < products.length; i++) {
         createProduct(products[i]);
-        console.log(products[i]);
+        console.log(products[i].name);
+        console.log(products[i].price);
+        console.log(products[i].ordered);
     }
+
     products.forEach((product, index) => {
         let name = product.name;
         let price = product.price;
@@ -88,10 +74,43 @@ request.onload = function () {
             totalOrders(-1, index);
         });
         document.getElementById("btn_max_" + index).addEventListener("click", () => {
-            totalOrders(1, index, product);
+            totalOrders(1, index);
         });
     });
-  
+
+    let totalOrders = (e, id) => {
+        products.forEach((product, index, products) => {
+            if (id == index) {
+                // product.calculateOrder(e);
+                console.log(product);
+                document.querySelector("#order_" + id).innerHTML = `${product.ordered}`;
+
+                let order = 0;
+                order += (product.calculateTotal(e) * e);
+                document.querySelector("#price_" + id).innerHTML = `Sum: ${order}₴`;
+
+                let elem = document.querySelector(".card_" + id);
+                (elem.parentNode.id == "dropzone") ? totalPrice += product.price * e : false;
+
+                (product.ordered > 0) ? document.querySelector("#btn_min_" + id).removeAttribute("disabled") : document.querySelector("#btn_min_" + id).setAttribute("disabled", "disabled");
+
+                product.outTotal();
+                product.isFreeShipping();
+            }
+        });
+    };
+    // calculateOrder(e) {
+    //     return this.ordered += e;
+    // },
+    // calculateTotal(e) {
+    //     return (this.ordered * this.price) * e;
+    // },
+    // outTotal() {
+    //     document.querySelector("#totalPrice").innerHTML = `Total Price: ${totalPrice}₴`;
+    // },
+    // isFreeShipping() {
+    //     (totalPrice >= 1000) ? document.querySelector("#isFreeShipping").innerHTML = `Free Shipping` : document.querySelector("#isFreeShipping").innerHTML = `Shipping`;
+    // }
 
 
 }
