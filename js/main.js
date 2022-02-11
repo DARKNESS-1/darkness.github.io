@@ -15,12 +15,9 @@ request.onload = function () {
         console.log(product);
         products.push(product);
     }
-    console.log(products);
+   // console.log(products);
 
-    for (let i = 0; i < products.length; i++) {
-        createProduct(products[i]);
-        console.log(products[i]);
-    }
+    
 
     function createProduct(name, price) {
         return {
@@ -41,7 +38,10 @@ request.onload = function () {
             }
         };
     };
-
+    for (let i = 0; i < products.length; i++) {
+        createProduct(products[i]);
+        console.log(products[i]);
+    }
     products.forEach((product, index) => {
         let name = product.name;
         let price = product.price;
