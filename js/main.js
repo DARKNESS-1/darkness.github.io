@@ -15,16 +15,15 @@ request.onload = function () {
 
     function createProduct(name, price, ordered) {
         return {
-            name: name,
-            price: price,
-            ordered: ordered
+            name,
+            price,
+            ordered
         }
     };
     products.forEach((product) => {
         createProduct(product);
     });
-
-    console.log(products);
+    
     products.forEach((product, index) => {
         let name = product.name;
         let price = product.price;
@@ -37,7 +36,6 @@ request.onload = function () {
         let cardButtonMin = document.createElement("button");
         let cardOrder = document.createElement("div");
         let cardButtonMax = document.createElement("button");
-
         card.classList.add("card", "card_" + index);
         card.id = index;
         card.setAttribute("draggable", "true");
@@ -58,7 +56,6 @@ request.onload = function () {
         cardButtonMax.classList.add("btn", "btn-sm", "btn-success");
         cardButtonMax.id = "btn_max_" + index;
         cardButtonMax.textContent = "+";
-
         section.appendChild(card);
         card.appendChild(cardBody);
         cardBody.appendChild(cardPrice);
