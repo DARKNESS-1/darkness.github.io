@@ -18,16 +18,15 @@ section {
     background   : @card_color;
     margin-bottom: .25rem;
 
+    p {
+        margin-bottom: 0;
+    }
+
     .card-footer {
-        >div {
-            display: flex;
-        }
+        display: flex;
 
-        >div * {
-            flex: 1;
-        }
-
-        >div>div {
+        div {
+            flex      : 1;
             text-align: center;
             align-self: center;
         }
