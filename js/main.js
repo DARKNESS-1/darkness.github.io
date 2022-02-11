@@ -5,6 +5,7 @@ request.responseType = 'json';
 request.send();
 request.onload = function () {
     let products = request.response;
+    console.log(products);
     let totalPrice = 0;
     let section = document.querySelector('.card-group-column');
 
@@ -28,7 +29,7 @@ request.onload = function () {
         };
     };
 
-    products.forEach((product) => {
+    products.forEach((product, products) => {
         let keyName = product.name;
         let keyPrice = product.price;
         createProduct(keyName, keyPrice);
