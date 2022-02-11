@@ -5,11 +5,15 @@ request.responseType = 'json';
 request.send();
 request.onload = function () {
     let products = request.response;
-    console.log(products);
+
     let totalPrice = 0;
     let section = document.querySelector('.card-group-column');
 
-    function createProduct(name, price) {
+    products.forEach((product) => {
+        createProduct(product);
+    });
+
+    function createProduct(name, price, ordered) {
         return {
             name,
             price,
@@ -29,13 +33,7 @@ request.onload = function () {
         };
     };
 
-    products.forEach((product, products) => {
-        let keyName = product.name;
-        let keyPrice = product.price;
-        createProduct(keyName, keyPrice);
-    });
-
-    products.forEach((product, index) => {
+    products.forEach((product, index, products) => {
         let name = product.name;
         let price = product.price;
         let card = document.createElement("div");
@@ -87,22 +85,22 @@ request.onload = function () {
 
     let totalOrders = (e, id, product) => {
         console.log(product);
-        
-            product.calculateOrder(e);
-            document.querySelector("#order_" + id).innerHTML = `${product.ordered}`;
 
-            let order = 0;
-            order += (product.calculateTotal(e) * e);
-            document.querySelector("#price_" + id).innerHTML = `Sum: ${order}₴`;
+        product.calculateOrder(e);
+        document.querySelector("#order_" + id).innerHTML = `${product.ordered}`;
 
-            let elem = document.querySelector(".card_" + id);
-            (elem.parentNode.id == "dropzone") ? totalPrice += product.price * e : false;
+        let order = 0;
+        order += (product.calculateTotal(e) * e);
+        document.querySelector("#price_" + id).innerHTML = `Sum: ${order}₴`;
 
-            (product.ordered > 0) ? document.querySelector("#btn_min_" + id).removeAttribute("disabled") : document.querySelector("#btn_min_" + id).setAttribute("disabled", "disabled");
+        let elem = document.querySelector(".card_" + id);
+        (elem.parentNode.id == "dropzone") ? totalPrice += product.price * e : false;
 
-            product.outTotal();
-            product.isFreeShipping();
-        
+        (product.ordered > 0) ? document.querySelector("#btn_min_" + id).removeAttribute("disabled") : document.querySelector("#btn_min_" + id).setAttribute("disabled", "disabled");
+
+        product.outTotal();
+        product.isFreeShipping();
+
     }
 
     // let totalOrders = (e, id, product) => {
