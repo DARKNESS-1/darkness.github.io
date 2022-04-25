@@ -23,10 +23,5 @@
     "name": "Item 5",
     "price": 56,
     "ordered": 0
-  },
-  {
-    "name": "Item 6",
-    "price": 12.5,
-    "ordered": 0
   }
 ]
