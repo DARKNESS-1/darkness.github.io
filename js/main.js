@@ -1,4 +1,4 @@
-var requestURL = 'https://raw.githubusercontent.com/DARKNESS-1/darkness.github.io/main/json.json';
+var requestURL = 'https://raw.githubusercontent.com/rohovyi/darkness.github.io/main/json.json';
 var request = new XMLHttpRequest();
 request.open('GET', requestURL);
 request.responseType = 'json';
