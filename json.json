@@ -1,6 +1,6 @@
 [
   {
-    "name": "Item 1",
+    "name": "Item 11",
     "price": 280.25,
     "ordered": 0
   },
@@ -12,21 +12,6 @@
   {
     "name": "Item 3",
     "price": 12.5,
-    "ordered": 0
-  },
-  {
-    "name": "Item 4",
-    "price": 280.25,
-    "ordered": 0
-  },
-  {
-    "name": "Item 5",
-    "price": 56,
-    "ordered": 0
-  },
-  {
-    "name": "Item 7",
-    "price": 56,
     "ordered": 0
   }
 ]
